@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Coming Soon", cursive;
+  font-weight: bolder;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  min-height: 100vh;
+  background-color: antiquewhite;
+}
+
+.container {
+  width: 550px;
+  background-color: aquamarine;
+  padding: 0;
+  margin: 0;
+  display: block;
+  box-shadow: 0 20px 20px 20px;
+  border-radius: 2%;
+}
+
+h2 {
+  text-align: center;
+}
+
+.form {
+  padding: 20px 40px;
+}
+
+.form-control {
+  padding: 1px 15px 2px 15px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.form-control label {
+  padding: 0 10px 1px;
+  display: block;
+}
+
+.form-control input {
+  border: 4px solid grey;
+  width: 100%;
+  border-radius: 3px;
+  font-size: medium;
+}
+
+.form-control input:focus {
+  outline: none;
+}
+
+button {
+  padding: 10px;
+  display: block;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px 3px;
+}
+
+.form-control.success input {
+  border-color: green;
+}
+
+.form-control.error input {
+  border-color: red;
+}
+
+.form-control small {
+  visibility: hidden;
+}
+
+.form-control.error small {
+  visibility: visible;
+}
+
+button:hover {
+  background-color: rgb(1, 9, 12);
+  color: antiquewhite;
+  box-shadow: 0 2px 4px 3px;
+  border-radius: 5px;
+}
+/* body {
+  padding: 0;
+  margin: 0;
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 600px;
+  background-color: burlywood;
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.form {
+  padding: 20px 40px;
+}
+
+h2 {
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+.form-control {
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.form-control label {
+  color: rgb(6, 34, 34);
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-control input {
+  display: block;
+  width: 100%;
+  border: 3px solid rgb(102, 102, 121);
+  font-size: medium;
+}
+
+.form-control input:focus {
+  outline: none;
+  border-color: #777;
+}
+
+.form-control.success input {
+  border-color: green;
+}
+
+.form-control.error input {
+  border-color: red;
+}
+
+.form-control small {
+  color: red;
+  visibility: hidden;
+
+  bottom: 0;
+  left: 0;
+}
+
+.form-control.error small {
+  visibility: visible;
+}
+
+button {
+  padding: 10px;
+  font-size: 20px;
+  background-color: burlywood;
+  color: rgb(1, 12, 8);
+  border-radius: 20px;
+  border: 4px solid grey;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+}
+
+button:hover {
+  background-color: rgb(201, 144, 69);
+  color: burlywood;
+  box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.3);
+} */
