@@ -9,22 +9,23 @@ import {
   Button,
 } from "reactstrap";
 
-const Form = () => (
-  <BTForm style={{ margin: 10 }}>
+const Form = ({ name, amount, handleName, handleAmount, handleSubmitForm }) => (
+  <BTForm style={{ margin: 10 }} onSubmit={handleSubmitForm}>
     <FormGroup className="row">
       <Label for="exampleEmail" sm={2}>
         Name of Expense
       </Label>
       <Col sm={4}>
         <Input
-          type="number"
-          name="amount"
-          id="expenseAmount"
-          placeholder="0.00"
+          type="text"
+          name="name"
+          id="expenseName"
+          placeholder="Name of expense?"
+          value={name}
+          onChange={handleName}
         />
       </Col>
     </FormGroup>
-
     <FormGroup className="row">
       <Label for="exampleEmail" sm={2}>
         $ Amount
@@ -35,6 +36,8 @@ const Form = () => (
           name="amount"
           id="expenseAmount"
           placeholder="0.00"
+          value={amount}
+          onChange={handleAmount}
         />
       </Col>
     </FormGroup>

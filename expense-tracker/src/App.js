@@ -1,24 +1,40 @@
 import { React, useState } from "react";
 
-import { Container } from "reactstrap";
+import { Container, Button } from "reactstrap";
 
 import Form from "./components/Form";
+import List from "./components/List";
 
 const ALL_EXPENSES = [
   { id: 1, name: "Buy a book", amount: 20 },
-  { id: 2, name: "Buy a milk", amount: 5 },
+  { id: 2, name: "Buy a milk", amount: 55 },
   { id: 3, name: "Book a flight ticket", amount: 25 },
 ];
 
 function App() {
-  const [expenses, setExpenses] = useState(ALL_EXPENSES);
+  const [expenses, setExpense] = useState(ALL_EXPENSES);
+  const [name, setName] = useState("");
+  const [amount, setAmount] = useState("");
+
+  const handleName = (event) => {
+    console.log("Name", event.target.value);
+    setName(event.target.value);
+  };
+
+  const handleAmount = (event) => {
+    console.log("Amount", event.target.value);
+    setAmount(event.target.value);
+  };
+
+  const handleSubmitForm = (event) => {
+    event.preventDefault();
+  };
   return (
-    <Container style={{ marginTop: 20 }}>
-      <h3 className="display-6"> Expense Tracker App</h3>
+    <Container>
+      <h3>Expense Tracker App</h3>
       <div>
         <p>
-          {" "}
-          Total Expense : {""}
+          TOtal Expense:{" "}
           <span>
             ${" "}
             {expenses.reduce((accumulator, currentValue) => {
@@ -27,7 +43,14 @@ function App() {
           </span>
         </p>
       </div>
-      <Form />
+      <Form
+        name={name}
+        amount={amount}
+        handleName={handleName}
+        handleAmount={handleAmount}
+        handleSubmitForm={handleSubmitForm}
+      />
+      <List expenses={expenses} />
     </Container>
   );
 }
