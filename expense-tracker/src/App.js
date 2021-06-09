@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import { React, useState } from "react";
+
+import { Container } from "reactstrap";
+
+import Form from "./components/Form";
+
+const ALL_EXPENSES = [
+  { id: 1, name: "Buy a book", amount: 20 },
+  { id: 2, name: "Buy a milk", amount: 5 },
+  { id: 3, name: "Book a flight ticket", amount: 25 },
+];
 
 function App() {
+  const [expenses, setExpenses] = useState(ALL_EXPENSES);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <Container style={{ marginTop: 20 }}>
+      <h3 className="display-6"> Expense Tracker App</h3>
+      <div>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          {" "}
+          Total Expense : {""}
+          <span>
+            ${" "}
+            {expenses.reduce((accumulator, currentValue) => {
+              return (accumulator += parseInt(currentValue.amount));
+            }, 0)}
+          </span>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      </div>
+      <Form />
+    </Container>
   );
 }
 
 export default App;
+
+//Todo Important  points to understand
+
+//* useState hooks returns 2 values, 1- current value of the state object, 2- function to update the state value of the first
+//! hooks are always called at the top level of the function
+//! before returnin the jsx, hooks should be called
+
+// reduce method syntax
+//* array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+//? The reduce() method reduces the array to a single value.
+
+//?The return value of the function is stored in an accumulator (result/total).
