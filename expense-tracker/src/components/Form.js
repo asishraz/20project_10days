@@ -9,40 +9,25 @@ import {
   Button,
 } from "reactstrap";
 
-const Form = ({ name, amount, handleName, handleAmount, handleSubmitForm }) => (
-  <BTForm style={{ margin: 10 }} onSubmit={handleSubmitForm}>
+const Form = () => (
+  <BTForm style={{ margin: 10 }}>
     <FormGroup className="row">
-      <Label for="exampleEmail" sm={2}>
-        Name of Expense
-      </Label>
-      <Col sm={4}>
-        <Input
-          type="text"
-          name="name"
-          id="expenseName"
-          placeholder="Name of expense?"
-          value={name}
-          onChange={handleName}
-        />
-      </Col>
-    </FormGroup>
-    <FormGroup className="row">
-      <Label for="exampleEmail" sm={2}>
-        $ Amount
-      </Label>
+      <Label for="exampleEmail" sm={2}></Label>
       <Col sm={4}>
         <Input
           type="number"
           name="amount"
           id="expenseAmount"
           placeholder="0.00"
-          value={amount}
-          onChange={handleAmount}
+          style={{ marginBottom: 15 }}
         />
       </Col>
     </FormGroup>
-    <Button type="submit" color="primary">
+    <Button type="submit" color="primary" style={{ marginRight: 5 }}>
       Add
+    </Button>
+    <Button type="submit" color="danger">
+      Remove
     </Button>
   </BTForm>
 );

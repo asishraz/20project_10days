@@ -1,55 +1,32 @@
-import { React, useState } from "react";
-
-import { Container, Button } from "reactstrap";
-
+import React, { useState } from "react";
+import { Container } from "reactstrap";
 import Form from "./components/Form";
 import List from "./components/List";
 
 const ALL_EXPENSES = [
-  { id: 1, name: "Buy a book", amount: 20 },
-  { id: 2, name: "Buy a milk", amount: 55 },
-  { id: 3, name: "Book a flight ticket", amount: 25 },
+  { id: 1, time: "12:30pm", amount: 20, operation: "add" },
+  { id: 2, time: "12:35pm", amount: 5, operation: "add" },
+  { id: 3, time: "12:40pm", amount: 225, operation: "remove" },
 ];
 
 function App() {
-  const [expenses, setExpense] = useState(ALL_EXPENSES);
-  const [name, setName] = useState("");
-  const [amount, setAmount] = useState("");
+  const [expenses, setExpenses] = useState(ALL_EXPENSES);
 
-  const handleName = (event) => {
-    console.log("Name", event.target.value);
-    setName(event.target.value);
-  };
-
-  const handleAmount = (event) => {
-    console.log("Amount", event.target.value);
-    setAmount(event.target.value);
-  };
-
-  const handleSubmitForm = (event) => {
-    event.preventDefault();
-  };
   return (
-    <Container>
-      <h3>Expense Tracker App</h3>
+    <Container className="text-center">
+      <h3 className="display-6">Expense Tracker- Basic</h3>
       <div>
         <p>
-          TOtal Expense:{" "}
-          <span>
-            ${" "}
+          Balance:{" "}
+          <span className="text-success">
+            {" "}
             {expenses.reduce((accumulator, currentValue) => {
               return (accumulator += parseInt(currentValue.amount));
             }, 0)}
           </span>
         </p>
       </div>
-      <Form
-        name={name}
-        amount={amount}
-        handleName={handleName}
-        handleAmount={handleAmount}
-        handleSubmitForm={handleSubmitForm}
-      />
+      <Form />
       <List expenses={expenses} />
     </Container>
   );
