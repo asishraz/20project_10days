@@ -4,7 +4,7 @@ const stop = document.getElementById("stop");
 const progress = document.getElementById("progress");
 const timestamp = document.getElementById("timestamp");
 
-//todo play & pause video
+// Play & pause video
 function toggleVideoStatus() {
   if (video.paused) {
     video.play();
@@ -13,7 +13,7 @@ function toggleVideoStatus() {
   }
 }
 
-//todo update play and pause icon
+// update play/pause icon
 function updatePlayIcon() {
   if (video.paused) {
     play.innerHTML = '<i class="fa fa-play fa-2x"></i>';
@@ -22,27 +22,44 @@ function updatePlayIcon() {
   }
 }
 
-//todo stop video
+// Update progress & timestamp
+function updateProgress() {
+  progress.value = (video.currentTime / video.duration) * 100;
+
+  // Get minutes
+  let mins = Math.floor(video.currentTime / 60);
+  if (mins < 10) {
+    mins = "0" + String(mins);
+  }
+
+  // Get seconds
+  let secs = Math.floor(video.currentTime % 60);
+  if (secs < 10) {
+    secs = "0" + String(secs);
+  }
+
+  timestamp.innerHTML = `${mins}:${secs}`;
+}
+
+// Set video time to progress
+function setVideoProgress() {
+  video.currentTime = (+progress.value * video.duration) / 100;
+}
+
+// Stop video
 function stopVideo() {
   video.currentTime = 0;
   video.pause();
 }
 
-//todo video time progress
-function setVideoProgress() {
-  return true;
-}
-
-//todo update progress and timestamp
-function updateProgress() {
-  return true;
-}
-
+// Event listeners
 video.addEventListener("click", toggleVideoStatus);
-video.addEventListener("play", updatePlayIcon);
 video.addEventListener("pause", updatePlayIcon);
+video.addEventListener("play", updatePlayIcon);
 video.addEventListener("timeupdate", updateProgress);
 
 play.addEventListener("click", toggleVideoStatus);
+
 stop.addEventListener("click", stopVideo);
-timestamp.addEventListener("change", setVideoProgress);
+
+progress.addEventListener("change", setVideoProgress);
