@@ -1,0 +1,25 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  color: rgb(11, 32, 32);
+  text-align: center;
+}
+
+.balance-container {
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+input {
+  height: 1.4rem;
+}
+
+button {
+  text-align: center;
+  justify-content: center;
+  font-size: 16px;
+  padding: 10px 12px;
+}
