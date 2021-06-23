@@ -4,13 +4,37 @@ import Form from "./components/Form";
 import List from "./components/List";
 
 const ALL_EXPENSES = [
-  { id: 1, time: "12:30pm", amount: 20, operation: "add" },
-  { id: 2, time: "12:35pm", amount: 5, operation: "add" },
-  { id: 3, time: "12:40pm", amount: 225, operation: "remove" },
+  { id: 1, time: Date().toLocaleString(), amount: 20, operation: "add" },
+  { id: 2, time: Date(), amount: 5, operation: "add" },
+  { id: 3, time: Date(), amount: 225, operation: "remove" },
 ];
 
 function App() {
   const [expenses, setExpenses] = useState(ALL_EXPENSES);
+  const [amount, setAmount] = useState("");
+
+  const handleAmount = (event) => {
+    console.log("Amount ", event.target.value);
+    setAmount(event.target.value);
+  };
+
+  const handleSubmitForm = (event) => {
+    event.preventDefault();
+    // do something when submitting the form
+    if (amount > 0) {
+      // single expense object
+      const expense = { amount };
+      // do not override previous values in the array
+      // use spread operator to access previous values
+      setExpenses([...expenses, expense]);
+
+      // clean input fields
+
+      setAmount("");
+    } else {
+      console.log("Invalid expense name or the amount");
+    }
+  };
 
   return (
     <Container className="text-center">
@@ -26,7 +50,11 @@ function App() {
           </span>
         </p>
       </div>
-      <Form />
+      <Form
+        amount={amount}
+        handleAmount={handleAmount}
+        handleSubmitForm={handleSubmitForm}
+      />
       <List expenses={expenses} />
     </Container>
   );

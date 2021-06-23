@@ -14,11 +14,12 @@
     <h1>Expense Tracker</h1>
 
     <div class="balance-container">
-        <h4>Balance: <span id="amount">$0</span></h4>
+        <h4>Balance: $<span id="amount"></span></h4>
         <div class="input-form">
-            <input type="number" id="number" name="number">
+            <input type="number" id="money" name="number">
         </div>
         <div class="btn">
+            <!-- <input type="button" value="added" onclick="increment()" /> -->
             <button type="submit" onclick="increment()">Add</button>
             <button type="submit" onclick="decrement()">Remove</button>
         </div>
