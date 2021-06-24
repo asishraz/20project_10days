@@ -40,3 +40,8 @@ function color() {
   var p2 = document.getElementById("p2");
   p2.style.color = "red";
 }
+
+function changeFont() {
+  var p2 = document.getElementById("p2");
+  p2.style.fontsize = '16px';
+}
